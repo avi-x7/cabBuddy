@@ -12,7 +12,7 @@ const User = new mongoose.Schema({
     date: { type: String, default: (new Date().toISOString().split("T"))[0] }
 })
 
-const user_reg = mongoose.model("userauth", User)
+const user_reg = mongoose.model("user", User)
 export default user_reg
 
 
