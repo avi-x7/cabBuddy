@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import '../css/UserRegistration'
 
 const UserRegistration = () => {
   const navigate = useNavigate();
@@ -70,7 +71,7 @@ const UserRegistration = () => {
   };
 
   return (
-    <>
+    <div className="body">
       <div className="w-100 text-center">
         <h1>User Registration</h1>
       </div>
@@ -268,7 +269,7 @@ const UserRegistration = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
