@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import "../css/UserRegistration.css";
+import Header from "../common/Header";
 
 const UserRegistration = () => {
   const navigate = useNavigate();
@@ -71,196 +72,205 @@ const UserRegistration = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="card shadow p-4 w-50 mx-auto">
-        <h2 className="text-center mb-4">User Registration</h2>
-        <form onSubmit={submitData}>
-          {/* User Name */}
-          <div className="w-100 mt-3">
-            <div className="input-group mb-3">
-              <span className="input-group-text">
-                <i className="fas fa-user"></i>
-              </span>
-              <div className="form-floating">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="floatingUser"
-                  placeholder="User Name"
-                  name="userName"
-                  value={regData.userName}
-                  onChange={fetchData}
-                />
-                <label htmlFor="floatingUser">User Name</label>
+    <>
+      <Header />
+      <div className="container mt-5">
+        <div className="card shadow p-4 w-50 mx-auto">
+          <h2 className="text-center mb-4">User Registration</h2>
+          <form onSubmit={submitData}>
+            {/* User Name */}
+            <div className="w-100 mt-3">
+              <div className="input-group mb-3">
+                <span className="input-group-text">
+                  <i className="fas fa-user"></i>
+                </span>
+                <div className="form-floating">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="floatingUser"
+                    placeholder="User Name"
+                    name="userName"
+                    value={regData.userName}
+                    onChange={fetchData}
+                  />
+                  <label htmlFor="floatingUser">User Name</label>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Email */}
-          <div className="w-100 mt-3">
-            <div className="input-group mb-3">
-              <span className="input-group-text">
-                <i className="fas fa-envelope"></i>
-              </span>
-              <div className="form-floating">
-                <input
-                  type="email"
-                  className="form-control"
-                  id="floatingEmail"
-                  placeholder="Email"
-                  name="userEmail"
-                  value={regData.userEmail}
-                  onChange={fetchData}
-                />
-                <label htmlFor="floatingEmail">Email</label>
+            {/* Email */}
+            <div className="w-100 mt-3">
+              <div className="input-group mb-3">
+                <span className="input-group-text">
+                  <i className="fas fa-envelope"></i>
+                </span>
+                <div className="form-floating">
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="floatingEmail"
+                    placeholder="Email"
+                    name="userEmail"
+                    value={regData.userEmail}
+                    onChange={fetchData}
+                  />
+                  <label htmlFor="floatingEmail">Email</label>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Password */}
-          <div className="w-100 mt-3">
-            <div className="input-group mb-3">
-              <span className="input-group-text">
-                <i className="fas fa-lock"></i>
-              </span>
-              <div className="form-floating">
-                <input
-                  type="password"
-                  className="form-control"
-                  id="floatingPassword"
-                  placeholder="Password"
-                  name="password"
-                  value={regData.password}
-                  onChange={fetchData}
-                />
-                <label htmlFor="floatingPassword">Password</label>
+            {/* Password */}
+            <div className="w-100 mt-3">
+              <div className="input-group mb-3">
+                <span className="input-group-text">
+                  <i className="fas fa-lock"></i>
+                </span>
+                <div className="form-floating">
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="floatingPassword"
+                    placeholder="Password"
+                    name="password"
+                    value={regData.password}
+                    onChange={fetchData}
+                  />
+                  <label htmlFor="floatingPassword">Password</label>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Confirm Password */}
-          <div className="w-100 mt-3">
-            <div className="input-group mb-3">
-              <span className="input-group-text">
-                <i className="fas fa-lock"></i>
-              </span>
-              <div className="form-floating">
-                <input
-                  type="password"
-                  className="form-control"
-                  id="floatingConfirmPassword"
-                  placeholder="Confirm Password"
-                  name="confirmPassword"
-                  value={regData.confirmPassword}
-                  onChange={fetchData}
-                />
-                <label htmlFor="floatingConfirmPassword">
-                  Confirm Password
-                </label>
+            {/* Confirm Password */}
+            <div className="w-100 mt-3">
+              <div className="input-group mb-3">
+                <span className="input-group-text">
+                  <i className="fas fa-lock"></i>
+                </span>
+                <div className="form-floating">
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="floatingConfirmPassword"
+                    placeholder="Confirm Password"
+                    name="confirmPassword"
+                    value={regData.confirmPassword}
+                    onChange={fetchData}
+                  />
+                  <label htmlFor="floatingConfirmPassword">
+                    Confirm Password
+                  </label>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Phone */}
-          <div className="w-100 mt-3">
-            <div className="input-group mb-3">
-              <span className="input-group-text">
-                <i className="fas fa-phone"></i>
-              </span>
-              <div className="form-floating">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="floatingPhone"
-                  placeholder="Phone"
-                  name="phone"
-                  value={regData.phone}
-                  onChange={fetchData}
-                />
-                <label htmlFor="floatingPhone">Phone</label>
+            {/* Phone */}
+            <div className="w-100 mt-3">
+              <div className="input-group mb-3">
+                <span className="input-group-text">
+                  <i className="fas fa-phone"></i>
+                </span>
+                <div className="form-floating">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="floatingPhone"
+                    placeholder="Phone"
+                    name="phone"
+                    value={regData.phone}
+                    onChange={fetchData}
+                  />
+                  <label htmlFor="floatingPhone">Phone</label>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Gender */}
-          <div className="w-100 mt-3">
-            <div className="input-group mb-3">
-              <span className="input-group-text">
-                <i className="fas fa-venus-mars"></i>
-              </span>
-              <select
-                className="form-select"
-                id="floatingGender"
-                name="gender"
-                value={regData.gender}
+            {/* Gender */}
+            <div className="w-100 mt-3">
+              <div className="input-group mb-3">
+                <span className="input-group-text">
+                  <i className="fas fa-venus-mars"></i>
+                </span>
+                <select
+                  className="form-select"
+                  id="floatingGender"
+                  name="gender"
+                  value={regData.gender}
+                  onChange={fetchData}
+                >
+                  <option value="">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            {/* City */}
+            <div className="w-100 mt-3">
+              <div className="input-group mb-3">
+                <span className="input-group-text">
+                  <i className="fas fa-city"></i>
+                </span>
+                <div className="form-floating">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="floatingCity"
+                    placeholder="City"
+                    name="city"
+                    value={regData.city}
+                    onChange={fetchData}
+                  />
+                  <label htmlFor="floatingCity">City</label>
+                </div>
+              </div>
+            </div>
+
+            {/* Address */}
+            <div className="w-100 mt-3">
+              <div className="input-group mb-3">
+                <span className="input-group-text">
+                  <i className="fas fa-map-marker-alt"></i>
+                </span>
+                <div className="form-floating">
+                  <textarea
+                    className="form-control"
+                    id="floatingAddress"
+                    placeholder="Address"
+                    rows="3"
+                    name="address"
+                    value={regData.address}
+                    onChange={fetchData}
+                  ></textarea>
+                  <label htmlFor="floatingAddress">Address</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupFile01">
+                Profile Pic
+              </label>
+              <input
+                type="file"
+                className="form-control"
+                id="inputGroupFile01"
+                name="pic"
                 onChange={fetchData}
-              >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
+              />
             </div>
-          </div>
 
-          {/* City */}
-          <div className="w-100 mt-3">
-            <div className="input-group mb-3">
-              <span className="input-group-text">
-                <i className="fas fa-city"></i>
-              </span>
-              <div className="form-floating">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="floatingCity"
-                  placeholder="City"
-                  name="city"
-                  value={regData.city}
-                  onChange={fetchData}
-                />
-                <label htmlFor="floatingCity">City</label>
-              </div>
+            {/* Submit Button */}
+            <div className="text-center mt-4">
+              <button type="submit" className="btn btn-primary w-100">
+                Register
+              </button>
             </div>
-          </div>
-
-          {/* Address */}
-          <div className="w-100 mt-3">
-            <div className="input-group mb-3">
-              <span className="input-group-text">
-                <i className="fas fa-map-marker-alt"></i>
-              </span>
-              <div className="form-floating">
-                <textarea
-                  className="form-control"
-                  id="floatingAddress"
-                  placeholder="Address"
-                  rows="3"
-                  name="address"
-                  value={regData.address}
-                  onChange={fetchData}
-                ></textarea>
-                <label htmlFor="floatingAddress">Address</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupFile01">
-            Profile Pic
-            </label>
-            <input type="file" className="form-control" id="inputGroupFile01" name="pic" onChange={fetchData} />
-          </div>
-
-          {/* Submit Button */}
-          <div className="text-center mt-4">
-            <button type="submit" className="btn btn-primary w-100">
-              Register
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
