@@ -7,7 +7,8 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-4 mb-3">
             <h5>About Us</h5>
-            <p>We provide high-quality services to enhance your digital experience.</p>
+            <p>CabBuddy is a dynamic web-based platform that facilitates cab-sharing services,
+            helping users split fares and reduce travel expenses.</p>
           </div>
           <div className="col-md-4 mb-3">
             <h5>Quick Links</h5>
