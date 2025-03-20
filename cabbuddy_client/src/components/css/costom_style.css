@@ -1,0 +1,17 @@
+html,body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+.main{
+
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+
+}
+main>footer{
+margin-top:auto;
+}
