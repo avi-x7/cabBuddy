@@ -1,7 +1,10 @@
 import React from "react";
-import '../css/Feedback.css'
+import Header from "./Header";
+// import '../css/Feedback.css'
 const Feedback = () => {
   return (
+    <>
+    <Header/>
     <div className="feedback-container">
       <div className="container mt-5">
         <div className="card shadow-lg p-4 rounded mx-auto w-50">
@@ -47,6 +50,7 @@ const Feedback = () => {
         </div>
       </div>
     </div>
+    </> 
   );
 };
 
