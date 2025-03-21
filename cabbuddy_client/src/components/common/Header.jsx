@@ -2,6 +2,18 @@ import { Link } from "react-router-dom";
 import Contact from "./Contact";
 import"../css/Header.css"
 const Header = () => {
+
+// const navigate=userNavigate()
+// const logout=()=>{
+
+//   const tokenEmail=localStorage.getItem("key")
+//   if(!tokenEmail||tokenEmail==null)
+//     navigate("/user_login")
+//   else{
+//   localStorage.removeItme("key")
+//   navigate("/user_login")
+// }}
+
   return (
     <nav className=" navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid shadow  ">
@@ -57,9 +69,9 @@ const Header = () => {
             </Link>
           </li>
           <li className="nav-item bg-info">
-            <a className="nav-link active" aria-current="page" href="#">
+            <Link className="nav-link active" aria-current="page" to="/user-login">
               Login
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

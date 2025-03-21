@@ -1,20 +1,40 @@
 import { useState } from "react";
-// import Header from "./common/Header";
+import Header from "../common/Header";
+import { useNavigate } from "react-router-dom";
 // import "./common/common.css";
-
+import axios from "axios";
+ 
 const UserLogin = () => {
-  const [loginData, setContactData] = useState({
-    userName: "",
+  const URL= `http://localhost:3000/user/login`;
+  const navigate=useNavigate()
+  
+  const [loginData, setloginData] = useState({
     userEmail: "",
     password: "",
   });
 
   const setValues = (e) => {
-    setContactData({ ...contactData, [e.target.name]: e.target.value });
+    setloginData({ ...loginData, [e.target.name]: e.target.value });
   };
-  const submitData = (e) => {
+  const submitData = async (e) => {
     e.preventDefault();
-    console.log(contactData);
+    console.log(loginData);
+    try {
+      const serverResponse = await axios.post(URL, loginData);
+      console.log("llllllll",serverResponse);
+
+      if (serverResponse.data.status === "Success") {
+        alert(serverResponse.data.message);
+        console.log(serverResponse.data)
+        localStorage.setItem("key",serverResponse.data.token)
+        
+        navigate("/userhome");
+      } else {
+        alert(serverResponse.data.message);
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
   };
   return (
     <>
@@ -25,25 +45,14 @@ const UserLogin = () => {
           <p>Get in with </p>
           <div className="l-box">
             <form onSubmit={submitData} method="get">
-              <div className="l-box-itm">
-                <label htmlFor="userName">Username :</label>
-                <input
-                  type="text"
-                  name="userName"
-                  placeholder="Enter your name"
-                  value={contactData.userName}
-                  onChange={setValues}
-                  required
-                />
-              </div>
-
+              
               <div className="l-box-itm">
                 <label htmlFor="userEmail">Email:</label>
                 <input
                   type="email"
                   name="userEmail"
                   placeholder="Enter your email"
-                  value={contactData.userEmail}
+                  value={loginData.userEmail}
                   onChange={setValues}
                   required
                 />
@@ -53,8 +62,8 @@ const UserLogin = () => {
                 <input
                   type="password"
                   name="password"
-                  placeholder="Enter your name"
-                  value={contactData.password}
+                  placeholder="Enter your password"
+                  value={loginData.password}
                   onChange={setValues}
                   required
                 />

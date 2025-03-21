@@ -6,7 +6,7 @@ import Header from "../common/Header";
 
 const UserRegistration = () => {
   const navigate = useNavigate();
-  const url = `http://localhost:3000/u/registration`;
+  const url = `http://localhost:3000/user/registration`;
 
   const [regData, setRegData] = useState({
     userName: "",
@@ -256,7 +256,7 @@ const UserRegistration = () => {
                 type="file"
                 className="form-control"
                 id="inputGroupFile01"
-                name="pic"
+                name="profilePic"
                 onChange={fetchData}
               />
             </div>

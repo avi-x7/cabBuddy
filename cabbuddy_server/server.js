@@ -13,7 +13,7 @@ app.use(express.json()) // middle ware)
 app.use(cors())//to work with front end and backend
 app.use(express.static("public"))//to tell the server all doc will add in this folder
 
-app.use("/")
+app.use("/",commonRoute)
 app.use("/user", user_router)
 
 app.listen(port, () => {
