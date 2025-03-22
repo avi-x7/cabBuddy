@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import "../css/UserRegistration.css";
 import Header from "../common/Header";
-
+import Footer from "../common/Footer";
 const UserRegistration = () => {
   const navigate = useNavigate();
   const url = `http://localhost:3000/u/registration`;
@@ -45,13 +45,15 @@ const UserRegistration = () => {
     formData.append("gender", regData.gender);
     formData.append("city", regData.city);
     formData.append("address", regData.address);
-    formData.append("pic", profilePic);
+    formData.append("profilePic", profilePic);
 
     try {
       const response = await axios.post(url, formData);
+      console.log("form data isssssssssssssssss",formData)
       console.log(response);
       alert(response.data);
       alert("Registration done successfully");
+      navigate("/user-login");
       //clear all fields
 
       // setRegData({
@@ -248,15 +250,15 @@ const UserRegistration = () => {
               </div>
             </div>
 
-            <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupFile01">
+            <div className="input-group mb-3">
+              <label className="input-group-text" for="inputGroupFile01">
                 Profile Pic
               </label>
               <input
                 type="file"
                 className="form-control"
                 id="inputGroupFile01"
-                name="pic"
+                name="profilePic"
                 onChange={fetchData}
               />
             </div>
@@ -270,6 +272,7 @@ const UserRegistration = () => {
           </form>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

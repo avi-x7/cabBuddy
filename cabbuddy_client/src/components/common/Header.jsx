@@ -3,7 +3,7 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           CabBuddy
         </a>
         <button
@@ -17,7 +17,7 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
@@ -35,32 +35,45 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/contact">
                 Contact
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to="/feedback">
-              Feedback
-            </Link>
-          </li>
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/feedback"
+              >
+                Feedback
+              </Link>
+            </li>
           </ul>
-        </div>
-      </div>
-      <div>
+          <div>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to="/user-registration">
+            <Link
+              className="nav-link active"
+              aria-current="page"
+              to="/user-registration"
+            >
               Registraion
             </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">
+            <Link
+              className="nav-link active"
+              aria-current="page"
+              to="/user-login"
+            >
               Login
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
+        </div>
+      </div>
+     
     </nav>
   );
 };

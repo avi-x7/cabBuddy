@@ -14,7 +14,7 @@ const storage = multer.diskStorage(
     }
 )
 
-const image_upload = multer({storage:storage}).single("pic") // pic is the name of file input in input file tag
+const image_upload = multer({storage:storage}).single("profilePic") // pic is the name of file input in input file tag
 
 
 export {image_upload}
