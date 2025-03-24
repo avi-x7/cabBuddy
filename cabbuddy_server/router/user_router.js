@@ -7,6 +7,7 @@ const user_router = express.Router()
 
 user_router.post('/registration',image_upload, userRegister)
 user_router.post('/login',userLogin)
+user_router.post('/login',userLogin)
 user_router.get('/getprofile',getProfile)
 
 export default user_router

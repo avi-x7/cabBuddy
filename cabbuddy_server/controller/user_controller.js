@@ -1,4 +1,15 @@
 import User from "../models/user.model.js";
+//userEdit Profile
+export const editProfile=async(request,response)=>{
+const userObject=request.body
+const {phone,city,address}=userObject 
+const{email}=request.query
+
+
+}
+
+
+
 const userRegister = async (req, res) => {
     const registerData = req.body
     const { userName, userEmail, password, confirmPassword, phone, gender, city, address, profilePic } = registerData

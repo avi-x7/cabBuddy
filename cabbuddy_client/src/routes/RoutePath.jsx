@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from '../App'
 import UserRegistration from "../components/user/UserRegistration";
-import Feedback from "../components/common/Feedback";
+import Feedback from "../components/user/Feedback";
 import UserLogin from "../components/user/UserLogin";
 import UserHome from "../components/user/UserHome";
 import Contact from "../components/common/Contact";
+import UserEditProfile from "../components/user/UserEditProfile";
 
 const RoutePath = () => {
   return (
@@ -16,6 +17,7 @@ const RoutePath = () => {
         <Route path='/userhome' element={<UserHome/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/feedback' element={<Feedback/>}></Route>
+        <Route path='/usereditprofile' element={<UserEditProfile/>}></Route>
 
       </Routes>
     </BrowserRouter>

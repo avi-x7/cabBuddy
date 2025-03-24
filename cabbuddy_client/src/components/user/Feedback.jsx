@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "./Header";
+import UserHeader from "./Userheader";
 // import '../css/Feedback.css'
-import Footer from "./Footer";
+import Footer from "../common/Footer";
 
 const Feedback = () => {
   return (
-    <><Header/>
+    <><UserHeader/>
       <div className="feedback-container">
         <div className="container mt-5">
           <div className="card shadow-lg p-4 rounded mx-auto w-50">

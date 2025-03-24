@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Header from "../common/Header";
+import UserHeader from "./Userheader";
 import Footer from "../common/Footer";
 const UserHome = () => {
   const navigate = useNavigate();
@@ -29,8 +29,8 @@ const UserHome = () => {
 
   return (
     <>
-      <Header />
-      <div className="card mx-auto" style={{ width: "18rem" }}>
+      <UserHeader/>
+      <div className="card mx-auto shadow" style={{ width: "18rem" }}>
         <img
           src={`http://localhost:3000/profilePics/${user.profilePic}`}
           className="card-img-top"
