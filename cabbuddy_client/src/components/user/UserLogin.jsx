@@ -9,8 +9,8 @@ const UserLogin = () => {
   const URL = "http://localhost:3000/u/login";
   const navigate = useNavigate();
   const [loginData, setloginData] = useState({
-    userName: "",
-    // userEmail: "",
+    // userName: "",
+    userEmail: "",
     password: "",
   });
 
@@ -24,7 +24,7 @@ const UserLogin = () => {
 
       if (serverResponse.data.status === "Success") {
         alert(serverResponse.data.message);
-        console.log(serverResponse.data);
+        console.log("data after login",serverResponse.data);
         localStorage.setItem("key", serverResponse.data.token);
         navigate("/userhome");
       } else {
@@ -52,13 +52,13 @@ const UserLogin = () => {
                 <input
                   type="text"
                   className="form-control"
-                  name="userName"
+                  name="userEmail"
                   placeholder="Enter your name"
-                  value={loginData.userName}
+                  value={loginData.userEmail}
                   onChange={setValues}
                   required
                 />
-                <label htmlFor="userName">Username</label>
+                <label htmlFor="userEmail">UserEmail</label>
               </div>
               
               <div className="form-floating mb-3">

@@ -13,13 +13,13 @@ const UserHome = () => {
 
   useEffect(() => {
     if (!token || token == null) {
-      navigate("/u/login");
+      navigate("/user-login");
     } else {
       fetchUserDetails();
     }
   }, []);
 
-  const fetchUserDetails = async (token) => {
+  const fetchUserDetails = async () => {
     try {
       const params = { token: token };
       const serverResponse = await axios.get(url, { params });
@@ -29,7 +29,7 @@ const UserHome = () => {
 
   return (
     <>
-      <UserHeader/>
+      <UserHeader />
       <div className="card mx-auto shadow" style={{ width: "18rem" }}>
         <img
           src={`http://localhost:3000/profilePics/${user.profilePic}`}
@@ -42,7 +42,7 @@ const UserHome = () => {
           <p className="card-text">Address : {user.address} </p>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };

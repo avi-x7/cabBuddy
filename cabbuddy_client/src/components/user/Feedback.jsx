@@ -1,9 +1,16 @@
-import React from "react";
+// import { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 import UserHeader from "./Userheader";
-// import '../css/Feedback.css'
 import Footer from "../common/Footer";
 
 const Feedback = () => {
+  // const navigate = useNavigate()
+  // const token = localStorage.getItem("key")
+  //  useEffect(() => {
+  //     if (!token || token == null) {
+  //       navigate("/u/login");
+  //     }
+  //   }, []);
   return (
     <><UserHeader/>
       <div className="feedback-container">

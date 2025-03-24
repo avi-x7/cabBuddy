@@ -251,7 +251,7 @@ const UserRegistration = () => {
             </div>
 
             <div className="input-group mb-3">
-              <label className="input-group-text" for="inputGroupFile01">
+              <label className="input-group-text" htmlFor="inputGroupFile01">
                 Profile Pic
               </label>
               <input
