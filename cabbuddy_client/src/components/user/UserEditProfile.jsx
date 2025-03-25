@@ -38,9 +38,13 @@ const UserEditProfile = () => {
   const submitData = async (e) => {
     e.preventDefault();
     try {
-      const params={useremail:token}
-      const serverResponse=await axios.put(Edit_Url,user,{params})
-      alert(serverResponse.message)
+      const params = { useremail: token };
+      const serverResponse = await axios.put(Edit_Url, user, { params });
+      // console.log(serverResponse)
+
+      if(serverResponse.data.message.acknowledged){
+         alert("profile modified successfully")}
+        else{ alert("Edit profile erroe");}
     } catch (err) {
       console.log(err.messsage);
     }

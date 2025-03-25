@@ -6,14 +6,16 @@ export const editProfile = async (request, response) => {
     const { phone, city, address } = userObject
     const { useremail } = request.query
 
-    try{
-       
-         
-        //   response.status(200).json({"message":"Profile edited successfully"})
+    try {
+        const filterCondition = { userEmail: useremail }
+        const modifiedData = { $set: { phone, city, address } }
+        const updateStatus = await User.updateOne(filterCondition, modifiedData)
+        console.log("updated status is : ", updateStatus)
+        response.status(200).json({ "message": updateStatus })
     }
-    catch(e){
+    catch (e) {
         console.log(e);
-        
+
     }
 }
 
