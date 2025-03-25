@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer mt-5 py-4 text-light bg-dark">
+    <footer className="footer py-4 text-light bg-dark">
       <div className="container text-center">
         <div className="row">
           <div className="col-md-4 mb-3">
@@ -10,9 +10,9 @@ const Footer = () => {
           <div className="col-md-4 mb-3">
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
-              <li><a href="#" className="text-light text-decoration-none">Home</a></li>
+              <li><a href="/" className="text-light text-decoration-none">Home</a></li>
               <li><a href="#" className="text-light text-decoration-none">About Us</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Contact</a></li>
+              <li><a href="/contact" className="text-light text-decoration-none">Contact</a></li>
             </ul>
           </div>
           <div className="col-md-4">

@@ -2,8 +2,26 @@
 // import { useNavigate } from "react-router-dom";
 import UserHeader from "./Userheader";
 import Footer from "../common/Footer";
-
+import { useState } from "react";
+import axios from "axios";
+import IsLogin from "../common/IsLogin";
 const Feedback = () => {
+  const URL = "http://localhost:3000/u/addfeedback"
+  const [formData, setFormData] = useState({
+    userName: "",
+    userEmail: "",
+    message: "",
+    rating: "",
+  });
+  const setValues = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const submitData = async (e) => {
+    e.preventDefault();
+    const response = await axios.post(URL, formData)
+    console.log(response)
+    console.log(formData);
+  };
   // const navigate = useNavigate()
   // const token = localStorage.getItem("key")
   //  useEffect(() => {
@@ -12,18 +30,24 @@ const Feedback = () => {
   //     }
   //   }, []);
   return (
-    <><UserHeader/>
+    <><IsLogin/>
+      <UserHeader />
+      <div className="specialbg py-5 mt-5" style={{background:"url(/cab-share6.jpg) center/cover no-repeat"}}>
+      
       <div className="feedback-container">
-        <div className="container mt-5">
+        <div className="container">
           <div className="card shadow-lg p-4 rounded mx-auto w-50">
             <h2 className="text-center mb-4">Feedback Form</h2>
-            <form>
+            <form onSubmit={submitData}>
               <div className="form-floating mb-3">
                 <input
                   type="text"
                   className="form-control"
                   id="floatingName"
                   placeholder="Your Name"
+                  name="userName"
+                  value={formData.userName}
+                  onChange={setValues}
                 />
                 <label htmlFor="floatingName">Name</label>
               </div>
@@ -33,6 +57,9 @@ const Feedback = () => {
                   type="email"
                   className="form-control"
                   id="floatingEmail"
+                  name="userEmail"
+                  value={formData.userEmail}
+                  onChange={setValues}
                   placeholder="name@example.com"
                 />
                 <label htmlFor="floatingEmail">Email address</label>
@@ -43,6 +70,9 @@ const Feedback = () => {
                   className="form-control"
                   id="floatingMessage"
                   placeholder="Your Message"
+                  name="message"
+                  value={formData.message}
+                  onChange={setValues}
                   style={{ height: "100px" }}
                 ></textarea>
                 <label htmlFor="floatingMessage">Message</label>
@@ -56,6 +86,9 @@ const Feedback = () => {
                     name="rating"
                     id="rating1"
                     className="btn-check"
+                    value="1"
+                    onChange={setValues}
+                    checked={formData.rating === "1"}
                   />
                   <label
                     htmlFor="rating1"
@@ -69,6 +102,9 @@ const Feedback = () => {
                     name="rating"
                     id="rating2"
                     className="btn-check"
+                    value="2"
+                    onChange={setValues}
+                    checked={formData.rating === "2"}
                   />
                   <label
                     htmlFor="rating2"
@@ -82,6 +118,9 @@ const Feedback = () => {
                     name="rating"
                     id="rating3"
                     className="btn-check"
+                    value="3"
+                    onChange={setValues}
+                    checked={formData.rating === "3"}
                   />
                   <label
                     htmlFor="rating3"
@@ -95,6 +134,9 @@ const Feedback = () => {
                     name="rating"
                     id="rating4"
                     className="btn-check"
+                    value="4"
+                    onChange={setValues}
+                    checked={formData.rating === "4"}
                   />
                   <label
                     htmlFor="rating4"
@@ -108,6 +150,9 @@ const Feedback = () => {
                     name="rating"
                     id="rating5"
                     className="btn-check"
+                    value="5"
+                    onChange={setValues}
+                    checked={formData.rating === "5"}
                   />
                   <label
                     htmlFor="rating5"
@@ -124,8 +169,8 @@ const Feedback = () => {
             </form>
           </div>
         </div>
-      </div>
-      <Footer/>
+      </div></div>
+      <Footer />
     </>
   );
 };

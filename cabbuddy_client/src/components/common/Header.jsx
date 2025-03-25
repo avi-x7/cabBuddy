@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{borderBottom:"2px solid #00000069"}}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           CabBuddy
@@ -20,7 +20,7 @@ const Header = () => {
         <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>
@@ -35,7 +35,7 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact">
+              <Link className="nav-link active" to="/contact">
                 Contact
               </Link>
             </li>
@@ -53,7 +53,7 @@ const Header = () => {
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link
-              className="nav-link active"
+              className="nav-link active rounded text-center" style={{backgroundColor:"#ffc107",marginRight:"2%"}}
               aria-current="page"
               to="/user-registration"
             >
@@ -62,7 +62,7 @@ const Header = () => {
           </li>
           <li className="nav-item">
             <Link
-              className="nav-link active"
+              className="nav-link active rounded text-center" style={{backgroundColor:"#ffc107",marginRight:"2%"}}
               aria-current="page"
               to="/user-login"
             >

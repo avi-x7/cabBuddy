@@ -8,9 +8,18 @@ function UserHeader() {
       navigate("/user-login");
     } else {
       localStorage.removeItem("key");
+      closeOffcanvas()
       navigate("/user-login");
     }
   };
+  const closeOffcanvas = () => {
+    const offcanvasElement = document.getElementById("sidebarMenu");
+    if (offcanvasElement) {
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+      if (bsOffcanvas) bsOffcanvas.hide();
+    }
+  };
+
   return (
     <>
       <nav
@@ -27,7 +36,7 @@ function UserHeader() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <Link className="navbar-brand mx-auto" to="#">
+          <Link className="navbar-brand mx-auto" to="/">
             {/* <img src="/car.svg" alt=""  height={20} width={40} />{" "} */}
             CabBuddy
           </Link>
@@ -56,22 +65,22 @@ function UserHeader() {
         <div className="offcanvas-body">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/userhome">
+              <Link className="nav-link text-white" to="/userhome" onClick={closeOffcanvas}>
                 <i className="bi bi-house-door"></i> Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/usereditprofile">
+              <Link className="nav-link text-white" to="/usereditprofile" onClick={closeOffcanvas}>
                 <i className="fas fa-user-edit"></i> Edit Profile
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/feedback">
+              <Link className="nav-link text-white" to="/feedback" onClick={closeOffcanvas}>
                 <i className="fas fa-comments"></i> Feedback
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="#">
+              <Link className="nav-link text-white" to="#" onClick={closeOffcanvas}>
                 <i className="fas fa-tasks"></i> Tasks
               </Link>
             </li>

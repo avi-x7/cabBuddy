@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserHeader from "./Userheader";
 import Footer from "../common/Footer";
+import Swal from 'sweetalert2'
 const UserEditProfile = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("key");
@@ -43,7 +44,7 @@ const UserEditProfile = () => {
       // console.log(serverResponse)
 
       if(serverResponse.data.message.acknowledged){
-         alert("profile modified successfully")}
+        Swal.fire("Profile added susseccfully !! ✔✔");}
         else{ alert("Edit profile erroe");}
     } catch (err) {
       console.log(err.messsage);

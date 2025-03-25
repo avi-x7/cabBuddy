@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import Feedback from "../models/feedback.model.js"
 //userEdit Profile
 export const editProfile = async (request, response) => {
     console.log("reques received : ", request.body)
@@ -20,7 +21,7 @@ export const editProfile = async (request, response) => {
 }
 
 
-
+// user Registration
 const userRegister = async (req, res) => {
     const registerData = req.body
     const { userName, userEmail, password, confirmPassword, phone, gender, city, address, profilePic } = registerData
@@ -38,20 +39,17 @@ const userRegister = async (req, res) => {
     }
 }
 
+// user LOgin
 export const userLogin = async (request, response) => {
     const userdata = request.body
     const { userEmail, password } = userdata
-    // console.log(password);
-    // console.log(userName);
-
-
     try {
         const userobject = await User.findOne({ userEmail: userEmail })
         //console.log(userobject);
         if (userobject != null) {
             if (userobject.password === password) {
                 // console.log("passsworddddd is : ", userobject.password)
-                return response.json({ "message": "Hello " + userobject.userName, "status": "Success", "token": userobject.userEmail })
+                return response.json({ "message": "Login successfull 🚀🚀",name:userobject.userName, "status": "Success", "token": userobject.userEmail })
             }
             else {
                 return response.json({ "message": "Invalid Password" })
@@ -67,7 +65,7 @@ export const userLogin = async (request, response) => {
 
 
 }
-
+// Fetch user profile
 export const getProfile = async (req, res) => {
     const { token } = req.query
 
@@ -78,4 +76,23 @@ export const getProfile = async (req, res) => {
     }
     catch (e) { console.log(e.message) }
 }
+
+// Add user feedback
+export const addFeedback = async (req, res) => {
+    const feedData = req.body
+    const { userName, userEmail, message, rating } = feedData
+ try{
+    const feedDoc = new Feedback({ userName, userEmail, message, rating })
+    feedDoc.save()
+    res.status(200).json({"message":"Thanks for your valueable feedback"})
+ }
+ catch(e){
+    console.log(e)
+ }   
+}
+
+
+
+
+
 export default userRegister

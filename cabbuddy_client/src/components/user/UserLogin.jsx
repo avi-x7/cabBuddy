@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Header from "../common/Header";
-// import "./common/common.css";
+// import "../css/UserLogin.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../common/Footer";
-
+import Swal from "sweetalert2";
 const UserLogin = () => {
   const URL = "http://localhost:3000/u/login";
   const navigate = useNavigate();
@@ -19,123 +19,97 @@ const UserLogin = () => {
   };
   const submitdata = async (e) => {
     e.preventDefault();
-    try {
-      const serverResponse = await axios.post(URL, loginData);
-
-      if (serverResponse.data.status === "Success") {
-        alert(serverResponse.data.message);
-        console.log("data after login",serverResponse.data);
-        localStorage.setItem("key", serverResponse.data.token);
-        navigate("/userhome");
-      } else {
-        alert(serverResponse.data.message);
+    if (loginData.password.length <= 0) {
+      alert("Password should be 4 character long");
+      document.getElementById("password").focus();
+      return;
+    } else {
+      try {
+        const serverResponse = await axios.post(URL, loginData);
+        if (serverResponse.data.status === "Success") {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: serverResponse.data.name,
+            text: serverResponse.data.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          console.log("data after login", serverResponse.data);
+          localStorage.setItem("key", serverResponse.data.token);
+          navigate("/userhome");
+        } else {
+          alert(serverResponse.data.message);
+        }
+      } catch (err) {
+        console.log(err.message);
       }
-    } catch (err) {
-      console.log(err.message);
     }
-    // console.log(userdata);
   };
 
   return (
     <>
       <Header />
-      <div className="login-container d-flex align-items-center justify-content-center min-vh-100">
-        <div className="card shadow-lg p-4 rounded d-flex flex-lg-row flex-column align-items-center">
-          <div className="image-container me-lg-4 mb-4 mb-lg-0">
-            {/* <img src={loginImage} alt="Login Illustration" className="img-fluid" /> */}
-          </div>
-          <div className="form-container">
-            <h2 className="text-center mb-4">User Login Panel</h2>
-            <p className="text-center">Get in with</p>
-            <form onSubmit={submitdata} method="get">
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  name="userEmail"
-                  placeholder="Enter your name"
-                  value={loginData.userEmail}
-                  onChange={setValues}
-                  required
-                />
-                <label htmlFor="userEmail">UserEmail</label>
-              </div>
-              
-              <div className="form-floating mb-3">
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  placeholder="Enter your password"
-                  value={loginData.password}
-                  onChange={setValues}
-                  required
-                />
-                <label htmlFor="password">Password</label>
-              </div>
-              
-              <button type="submit" className="btn btn-primary w-100">Login</button>
-            </form>
+      <div
+        className="specialbg py-5 mb-5"
+        style={{ background: "url(/cab-share5.jpg) center/cover no-repeat" }}
+      >
+        <div className="login-container d-flex align-items-center justify-content-center min-vh-75">
+          <div className="card shadow-lg p-4 rounded d-flex flex-lg-row flex-column align-items-center">
+            <div className="image-container me-lg-4 mb-4 mb-lg-0">
+              {/* <img src={loginImage} alt="Login Illustration" className="img-fluid" /> */}
+            </div>
+            <div className="form-container shadows">
+              <h2 className="text-center mb-4">User Login Panel</h2>
+              <p className="text-center">Get in with</p>
+              <form onSubmit={submitdata} method="get">
+                <div className="input-group mb-3">
+                  <span className="input-group-text">
+                    <i className="fas fa-envelope"></i>
+                  </span>
+                  <div className="form-floating ">
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="userEmail"
+                      id="userEmail"
+                      placeholder="Enter your name"
+                      value={loginData.userEmail}
+                      onChange={setValues}
+                      required
+                    />
+                    <label htmlFor="userEmail">User Email</label>
+                  </div>
+                </div>
+                <div className="input-group mb-3">
+                  <span className="input-group-text">
+                    <i className="fas fa-lock"></i>
+                  </span>
+                  <div className="form-floating">
+                    <input
+                      type="password"
+                      className="form-control"
+                      name="password"
+                      id="password"
+                      placeholder="Enter your password"
+                      value={loginData.password}
+                      onChange={setValues}
+                      required
+                    />
+                    <label htmlFor="password">Password</label>
+                  </div>
+                </div>
+                <button type="submit" className="btn btn-primary w-100">
+                  Login
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
-
-
-
-  // return (
-  //   <>
-  //     <Header />
-  //     <h1 className="cu-heading">User login panel</h1>
-  //     <div className="container">
-  //       <div className="left">
-  //         <p>Get in with </p>
-  //         <div className="l-box">
-  //           <form onSubmit={submitdata} method="get">
-  //             <div className="l-box-itm">
-  //               <label htmlFor="userName">Username :</label>
-  //               <input
-  //                 type="text"
-  //                 name="userName"
-  //                 placeholder="Enter your name"
-  //                 value={loginData.userName}
-  //                 onChange={setValues}
-  //                 required
-  //               />
-  //             </div>
-
-  //             {/* <div className="l-box-itm">
-  //               <label htmlFor="userEmail">Email:</label>
-  //               <input
-  //                 type="email"
-  //                 name="userEmail"
-  //                 placeholder="Enter your email"
-  //                 value={loginData.userEmail}
-  //                 onChange={setValues}
-  //                 required
-  //               />
-  //             </div> */}
-  //             <div className="l-box-itm">
-  //               <label htmlFor="userName">Password :</label>
-  //               <input
-  //                 type="password"
-  //                 name="password"
-  //                 placeholder="Enter your name"
-  //                 value={loginData.password}
-  //                 onChange={setValues}
-  //                 required
-  //               />
-  //             </div>
-
-  //             <button type="submit">Login</button>
-  //           </form>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </>
-  // );
 };
 
 export default UserLogin;
