@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import Feedback from "../models/feedback.model.js"
+import Contact from "../models/contact.model.js"
 //userEdit Profile
 export const editProfile = async (request, response) => {
     console.log("reques received : ", request.body)
@@ -85,6 +86,19 @@ export const addFeedback = async (req, res) => {
     const feedDoc = new Feedback({ userName, userEmail, message, rating })
     feedDoc.save()
     res.status(200).json({"message":"Thanks for your valueable feedback"})
+ }
+ catch(e){
+    console.log(e)
+ }   
+}
+export const addContact = async (req, res) => {
+    const contactData = req.body
+    const { userName, userEmail, message } = contactData
+    
+ try{
+    const contactDoc = new Contact({ userName, userEmail, message })
+    contactDoc.save()
+    res.status(200).json({"message":"Thanks for your contact"})
  }
  catch(e){
     console.log(e)
