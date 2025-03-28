@@ -6,6 +6,7 @@ import UserLogin from "../components/user/UserLogin";
 import UserHome from "../components/user/UserHome";
 import Contact from "../components/common/Contact";
 import UserEditProfile from "../components/user/UserEditProfile";
+import AllContacts from "../components/admin/AllContacts";
 
 const RoutePath = () => {
   return (
@@ -18,6 +19,8 @@ const RoutePath = () => {
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/feedback' element={<Feedback/>}></Route>
         <Route path='/usereditprofile' element={<UserEditProfile/>}></Route>
+
+        <Route path='/allcontacts' element={<AllContacts/>}></Route>
 
       </Routes>
     </BrowserRouter>
