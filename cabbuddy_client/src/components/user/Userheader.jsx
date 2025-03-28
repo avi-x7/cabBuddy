@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 function UserHeader() {
   const navigate = useNavigate();
   const logout = () => {
-    const tokenEmail = localStorage.getItem("key");
+    const tokenEmail = localStorage.getItem("key");               
     if (!tokenEmail) {
       navigate("/user-login");
     } else {
@@ -44,7 +44,7 @@ function UserHeader() {
       </nav>
 
       <div
-        className="offcanvas offcanvas-start "
+        className="offcanvas offcanvas-end "
         style={{ background: "linear-gradient(to right,#678e98,#1dabcf)" }}
         tabIndex="-1"
         id="sidebarMenu"
