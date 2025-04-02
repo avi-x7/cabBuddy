@@ -1,6 +1,7 @@
 import User from "../models/user.model.js";
 import Feedback from "../models/feedback.model.js"
 import Contact from "../models/contact.model.js"
+import AddTrip from "../models/addtrip.model.js"
 //userEdit Profile
 export const editProfile = async (request, response) => {
     console.log("reques received : ", request.body)
